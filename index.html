@@ -134,9 +134,16 @@
         /* Results gallery */
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: 1fr 1fr;
+            /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+            gap: 2rem;
             margin-top: 1rem;
+        }
+
+        .result-grid .result-card:last-child:nth-child(odd){
+            grid-column: 1 / -1;
+            max-width: 70%;
+            justify-self: center;
         }
 
         .result-card {
@@ -233,8 +240,7 @@
         <span>Zhanhong Jiang<sup>1</sup></span>
     </div>
     <div class="affiliations">
-        <sup>1</sup> Iowa State University &nbsp;|&nbsp;
-        <sup>2</sup> Translational AI Center &nbsp;|&nbsp;
+        <sup>1</sup> Translational AI Center, Iowa State University &nbsp;|&nbsp;
     </div>
 
     <!-- Link buttons -->
