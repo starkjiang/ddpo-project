@@ -1,6 +1,6 @@
 # Distributed Direct Preference Optimization (ICML 26)
 
-[![GitHub Repo](https://github.com/starkjiang/distributed_dpo.git)](https://github.com/starkjiang/distributed_dpo.git)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue.svg)](https://github.com/starkjiang/distributed_dpo.git)
 
 This repository contains the source code for a clean, responsive academic website to showcase **Distributed Direct Preference Optimization** published at ICML 2026. The page includes sections for title, authors, affiliations, abstract, links (PDF, code, slides), a result summar , and BibTex citation. 
 
