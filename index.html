@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Your Paper Title | Project Page</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafc;
+            color: #1e1e2f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* Title & authors */
+        .paper-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .authors {
+            text-align: center;
+            font-size: 1rem;
+            margin: 1rem 0 0.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1rem;
+        }
+
+        .authors span {
+            white-space: nowrap;
+        }
+
+        .affiliations {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4a4a5a;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Buttons / links */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            border: 1px solid #e2e2e8;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #1e1e2f;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn i {
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #f0f0f5;
+            border-color: #c0c0d0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .btn-primary {
+            background: #1e1e2f;
+            border-color: #1e1e2f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2d2d44;
+            border-color: #2d2d44;
+        }
+
+        /* Section styling */
+        section {
+            margin: 2.5rem 0;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        .abstract-text {
+            background: #f8f9fc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #2d2d3a;
+            text-align: justify;
+        }
+
+        /* Results gallery */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .result-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #ececf0;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #f2f2f6;
+        }
+
+        .result-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: white;
+            text-align: center;
+            border-top: 1px solid #efeff3;
+        }
+
+        /* BibTeX */
+        .bibtex-box {
+            background: #1e1e2a;
+            color: #e2e2f0;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+            background: #2d2d3a;
+            border: none;
+            color: white;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .copy-btn:hover {
+            background: #3b82f6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #6c6c7a;
+            border-top: 1px solid #eaeef5;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .paper-title {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Title -->
+    <h1 class="paper-title">Your Awesome Paper Title: <br> Distributed Direct Preference Optimization</h1>
+
+    <!-- Authors (with optional affiliation markers) -->
+    <div class="authors">
+        <span>Zhanhong Jiang<sup>1</sup></span>
+    </div>
+    <div class="affiliations">
+        <sup>1</sup> Iowa State University &nbsp;|&nbsp;
+        <sup>2</sup> Translational AI Center &nbsp;|&nbsp;
+    </div>
+
+    <!-- Link buttons -->
+    <div class="button-group">
+        <a href="#" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> Paper (arXiv)</a>
+        <a href="https://github.com/starkjiang/distributed_dpo.git" class="btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+        <a href="#" class="btn" target="_blank"><i class="fas fa-chalkboard"></i> Slides</a>
+        <a href="#" class="btn" target="_blank"><i class="fas fa-video"></i> Video</a>
+    </div>
+
+    <!-- Abstract -->
+    <section>
+        <div class="section-title">Abstract</div>
+        <div class="abstract-text">
+            Preference-based reinforcement learning (RL) has emerged as a
+            compelling framework for aligning policies with human preferences,
+            yet its theoretical foundations in distributed environments remain
+            largely unexplored. While Direct Preference Optimization (DPO) eliminates
+            the need for explicit reward modeling, extending it to federated and decentralized
+            settings introduces fundamental challenges stemming from communication constraints,
+            client drift, and heterogeneous, non-IID preference distributions. Moreover, DPO's trajectory-level
+            log-ratio objective induces nonlinear optimization dynamics and cross-trajectory dependencies that
+            intricately couple learning with network consensus.
+            In this work, we establish the first rigorous convergence and time-complexity theory for distributed DPO.
+            For federated DPO, we characterize convergence behavior through explicit dependence on communication frequency,
+            client heterogeneity, and local drift. For decentralized DPO, we derive guarantees over arbitrary communication topologies,
+            revealing how spectral connectivity fundamentally shapes both consensus formation and optimization efficiency.
+            Beyond standard assumptions, our analysis derives smoothness and variance constants directly from the underlying
+            RL trajectory structure and horizon length. Empirical studies on standard alignment benchmarks further validate our
+            theoretical predictions, demonstrating that the proposed methods achieve both strong theoretical guarantees and scalable
+            practical performance.
+        </div>
+    </section>
+
+    <!-- Results gallery (fancy visuals) -->
+    <section>
+        <div class="section-title">Experimental Results</div>
+        <div class="results-grid">
+            <div class="result-card">
+                <img src="images/comparative_multiseed_shp.pdf" alt="result 1">
+                <div class="result-caption">Performance comparison on different methods</div>
+            </div>
+            <div class="result-card">
+                <img src="images/local_steps_shp.pdf" alt="result 2">
+                <div class="result-caption">Impact of local steps on convergence (SHP)</div>
+            </div>
+            <div class="result-card">
+                <img src="images/participation_shp.pdf" alt="result 3">
+                <div class="result-caption">Impact of client participation on convergence (SHP)</div>
+            </div>
+            <div class="result-card">
+                <img src="images/topology_shp.pdf" alt="result 4">
+                <div class="result-caption">Impact of topology on convergence (SHP)</div>
+            </div>
+            <div class="result-card">
+                <img src="images/staleness_shp.pdf" alt="result 5">
+                <div class="result-caption">Impact of staleness on convergence (SHP)</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: #666;">
+            <i class="fas fa-chart-line"></i> More results, videos, and interactive plots available in the paper.
+        </p>
+    </section>
+
+    <!-- BibTeX citation -->
+    <section>
+        <div class="section-title">Citation</div>
+        <div class="bibtex-box" id="bibtex-content">
+            <button class="copy-btn" id="copyBibtexBtn"><i class="fas fa-copy"></i> Copy</button>
+            <pre style="margin: 0; padding-right: 3rem; font-family: inherit; overflow-x: auto;">@article{yourlastname2025awesome,
+  title     = {Distributed Direct Preference Optimization},
+  author    = {Jiang, Zhanhong},
+  journal   = {International Conference on Machine Learning (ICML)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/xxxx.xxxxx}
+}</pre>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Please cite our paper if you find it useful.</p>
+    </section>
+
+    <!-- Additional links / acknowledgements -->
+    <footer>
+        <p>© 2026 TrAC. Website template inspired by modern academic project pages.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="#" style="text-decoration: none; color: #3b82f6;">Paper (arXiv)</a> &nbsp;|&nbsp;
+            <a href="#" style="text-decoration: none; color: #3b82f6;">GitHub</a> &nbsp;|&nbsp;
+            <a href="#" style="text-decoration: none; color: #3b82f6;">Hugging Face</a>
+        </p>
+    </footer>
+</div>
+
+<script>
+    // Copy BibTeX to clipboard
+    const copyBtn = document.getElementById('copyBibtexBtn');
+    const bibtexContent = document.querySelector('#bibtex-content pre').innerText;
+
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(bibtexContent).then(() => {
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+            }, 2000);
+        }).catch(err => {
+            console.error('Could not copy: ', err);
+        });
+    });
+</script>
+</body>
+</html>
