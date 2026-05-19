@@ -2,7 +2,7 @@
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue.svg?logo=github)](https://github.com/starkjiang/distributed_dpo.git)
 
-This repository contains the source code for a clean, responsive academic website to showcase **Distributed Direct Preference Optimization** published at ICML 2026. The page includes sections for title, authors, affiliations, abstract, links (PDF, code, slides), a result summar , and BibTex citation. 
+This repository contains the source code for a clean, responsive academic website to showcase **Distributed Direct Preference Optimization** published at ICML 2026. The page includes sections for title, authors, affiliations, abstract, links (PDF, code, slides), a result summary, and BibTex citation. 
 
 ## Repository Structure
 
